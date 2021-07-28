@@ -2,7 +2,7 @@
 > Telegram bot, to get a sticker's info
 
 ---
-# source code for [@getStickerInfoBot](t.me/getStickerInfoBot)
+# source code for [@getStickerInfoBot](https://t.me/getStickerInfoBot)
 
 
 send a sticker to the bot, it'll reply the sticker's info
