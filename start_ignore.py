@@ -26,11 +26,11 @@ def main():
         config.read(config_path[0])
     else:
         try:
-            bot = telegram_bot_api(config_path[1])
-            config.read(config_path[1])
-        except:
             bot = telegram_bot_api(config_path[0])
             config.read(config_path[0])
+        except:
+            bot = telegram_bot_api(config_path[1])
+            config.read(config_path[1])
 
     chats = []
     chat_titles = []

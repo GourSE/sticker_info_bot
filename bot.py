@@ -20,11 +20,11 @@ if detected_os == "Windows":
     config.read(config_path[0])
 else:
     try:
-        bot = core.telegram_bot_api(config_path[1])
-        config.read(config_path[1])
-    except:
         bot = core.telegram_bot_api(config_path[0])
         config.read(config_path[0])
+    except:
+        bot = core.telegram_bot_api(config_path[1])
+        config.read(config_path[1])
 
 def do_reply(message_obj):
     msg = organizer.message(message_obj)
