@@ -10,6 +10,8 @@ import start_ignore
 import platform
 import configparser as cfg
 
+message_count = 0
+
 detected_os = platform.system()
 config_path = ["config.cfg", f"/home/{getuser()}/.local/share/sticker_info_bot/config.cfg"]
 
@@ -27,6 +29,7 @@ else:
         config.read(config_path[1])
 
 def do_reply(message_obj):
+    global message_count
     msg = organizer.message(message_obj)
     reply = "None"
 
@@ -52,7 +55,8 @@ def do_reply(message_obj):
         pass
 
     if reply != "None":
-        print(f"\n{colour.MAGENTA}Replied a message{colour.reset}")
+        message_count += 1
+        print(f"\n{colour.MAGENTA}Replied a message{colour.reset} {colour.YELLOW}No.{message_count}{colour.reset}")
         bot.send_message(msg.chat_id, textf.hex(reply), reply_to_message_id=msg.message_id, is_markdown=True)
 
 
@@ -62,7 +66,6 @@ def main():
 
     while True:
         update = bot.get_updates(offset)
-
         try:
             for message_obj in update["result"]:
                 msg = organizer.message(message_obj)
@@ -96,7 +99,7 @@ def main():
             print(f"{colour.WARNING}ERROR: unknown error, the script will stop{colour.reset}\n{error}")
             os._exit(1)
 
-    return
+    os._exit(1)
 
 
 start_ignore.main()
