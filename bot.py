@@ -52,6 +52,7 @@ def do_reply(message_obj):
         pass
 
     if reply != "None":
+        print(f"\n{colour.MAGENTA}Replied a message{colour.reset}")
         bot.send_message(msg.chat_id, textf.hex(reply), reply_to_message_id=msg.message_id, is_markdown=True)
 
 
@@ -61,6 +62,7 @@ def main():
 
     while True:
         update = bot.get_updates(offset)
+
         try:
             for message_obj in update["result"]:
                 msg = organizer.message(message_obj)
@@ -78,13 +80,13 @@ def main():
                     
                     except Exception as error:
                         print(f"{colour.WARNING}ERROR: unknown error{colour.reset}, the script will stop\n{error}")
-                        exit()
+                        os._exit(1)
                 else:
                     pass
 
         except KeyError as error:
             print(f"{colour.WARNING}ERROR: no bot token{colour.RED} or another getUpdate session running{colour.reset}\n{colour.YELLOW}plese check 'config.cfg'\n\nKeyError: {error}{colour.reset}\n")
-            exit()
+            os._exit(1)
 
         except RuntimeError as error:
             print(f"{colour.RED}ERROR: RuntimeError: {error}{colour.reset}\nwill continue looping")
@@ -92,7 +94,8 @@ def main():
 
         except Exception as error:
             print(f"{colour.WARNING}ERROR: unknown error, the script will stop{colour.reset}\n{error}")
-            exit()
+            os._exit(1)
+
     return
 
 
