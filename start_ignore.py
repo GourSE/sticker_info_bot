@@ -10,13 +10,6 @@ import configparser as cfg
 def main():
     detected_OS = platform.system()
 
-    prgm_path = ""
-    if detected_OS == "Windows":
-        if os.environ.get("PROGRAMFILES(X86)") is None:
-            prgm_path = os.environ.get("PROGRAMFILES")
-        else:
-            prgm_path = os.environ.get("PROGRAMFILES(X86)")
-
     config_path = ["config.cfg", f"/home/{getuser()}/.local/share/sticker_info_bot/config.cfg"]
 
     # Get config file for settings

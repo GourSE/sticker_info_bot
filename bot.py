@@ -39,12 +39,12 @@ def do_reply(message_obj):
 
         elif msg.type == "sticker":
             if msg.forward_from_id is None:
-                reply = f"Sticker:\nFrom pack: {textf.escape(str(msg.sticker_set_name))}\nFile ID: `{textf.escape(str(msg.content))}`\nFile unique ID: `{textf.escape(str(msg.file_unique_id))}`\nForwarded from: `{textf.escape(str(msg.forward_sender_name))}`\nID: locked by user"
+                reply = f"Sticker:\nFrom pack: [{textf.escape(str(msg.sticker_set_name))}](https://t.me/addstickers/{textf.escape(str(msg.sticker_set_name))})\nSticker ID\\(File ID\\): `{textf.escape(str(msg.content))}`\nFile unique ID: `{textf.escape(str(msg.file_unique_id))}`\n\nForwarded from: `{textf.escape(str(msg.forward_sender_name))}`\nID: locked by user"
             elif msg.forward_from_id is not None:
-                reply = f"Sticker:\nFrom pack: {textf.escape(str(msg.sticker_set_name))}\nFile ID: `{textf.escape(str(msg.content))}`\nFile unique ID: `{textf.escape(str(msg.file_unique_id))}`\nForwarded from: `{textf.escape(str(msg.forward_sender_name))}`\nID: `{textf.escape(str(msg.forward_from_id))}`"
+                reply = f"Sticker:\nFrom pack: [{textf.escape(str(msg.sticker_set_name))}](https://t.me/addstickers/{textf.escape(str(msg.sticker_set_name))})\nSticker ID\\(File ID\\): `{textf.escape(str(msg.content))}`\nFile unique ID: `{textf.escape(str(msg.file_unique_id))}`\n\nForwarded from: `{textf.escape(str(msg.forward_sender_name))}`\nID: `{textf.escape(str(msg.forward_from_id))}`"
 
     elif msg.type == "sticker":
-        reply = f"Sticker:\nFrom pack: {textf.escape(str(msg.sticker_set_name))}\nFile ID: `{textf.escape(str(msg.content))}`\nFile unique ID: `{textf.escape(str(msg.file_unique_id))}`"
+        reply = f"Sticker:\nFrom pack: [{textf.escape(str(msg.sticker_set_name))}](https://t.me/addstickers/{textf.escape(str(msg.sticker_set_name))})\nSticker ID\\(File ID\\): `{textf.escape(str(msg.content))}`\nFile unique ID: `{textf.escape(str(msg.file_unique_id))}`"
     
     elif msg.type != "sticker":
         reply = "Not a sticker"
