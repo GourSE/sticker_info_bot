@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
+#include "colour.h"
 
 const char BOT_C[] = "python3 bot.py";
 
@@ -114,11 +115,24 @@ int main(int argc, char **argv)
 int loopScript()
 {
     int built = getLocalConfig();
+    int loopCount = 1;
 
     if (built == -1)
     {
         while(1)
         {
+            if (loopCount == 1)
+            {
+                printf(CYAN "Initial loop\n" NONE);
+                loopCount ++;
+            }
+            else
+            {
+                system("clear");
+                printf(CYAN "Loop No.%d\n" NONE, loopCount);
+                loopCount ++;
+            }
+
             system(BOT_C);
         }
         
@@ -127,6 +141,18 @@ int loopScript()
     {
         while(1)
         {
+            if (loopCount == 1)
+            {
+                printf(CYAN "Initial loop\n" NONE);
+                loopCount ++;
+            }
+            else
+            {
+                system("clear");
+                printf(CYAN "Loop No.%d\n" NONE, loopCount);
+                loopCount ++;
+            }
+
             system(BOT);
         }
     }
