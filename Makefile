@@ -24,8 +24,8 @@ ifeq ($(detected_OS), Linux)
 
 bot: src/main.c
 
-	mkdir -p ~/bin
-	$(CC) src/main.c src/colour.h -o ~/bin/sticker_info_bot -Wall
+	mkdir -p ~/.local/bin
+	$(CC) src/main.c src/colour.h -o ~/.local/bin/sticker_info_bot -Wall
 	mkdir -p ~/.local/share/sticker_info_bot
 	cp -r -u ./*.py ~/.local/share/sticker_info_bot
 
@@ -50,8 +50,8 @@ endif
 
 replace: src/main.c
 
-	mkdir -p ~/bin
-	$(CC) src/main.c src/colour.h -o ~/bin/sticker_info_bot -Wall
+	mkdir -p ~/.local/bin
+	$(CC) src/main.c src/colour.h -o ~/.local/bin/sticker_info_bot -Wall
 	mkdir -p ~/.local/share/sticker_info_bot
 	cp -r -u ./*.py ./config.cfg ~/.local/share/sticker_info_bot
 
@@ -72,7 +72,7 @@ current: src/main.c
 	@echo "\ndone"
 
 clean:
-	rm -f ~/bin/sticker_info_bot
+	rm -f ~/.local/bin/sticker_info_bot
 	rm -f -r ~/.local/share/sticker_info_bot
 	rm -f sticker_info_bot
 
